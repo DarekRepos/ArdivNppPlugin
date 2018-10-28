@@ -100,6 +100,13 @@ namespace Kbg.NppPluginNET
             else
             {
                 Win32.SendMessage(PluginBase.nppData._nppHandle, (uint) NppMsg.NPPM_DMMSHOW, 0, frmMyDlg.Handle);
+                Win32.SendMessage(PluginBase.GetCurrentScintilla(),
+                  SciMsg.SCI_SETSELFORE, 1, 0xFFFFFF);
+                Win32.SendMessage(PluginBase.GetCurrentScintilla(),
+                  SciMsg.SCI_SETSELBACK, 1, 0xFFFFFF);
+                Win32.SendMessage(PluginBase.GetCurrentScintilla(),
+                 SciMsg.SCI_SETVIEWWS, 1, SCWS_VISIBLEALWAYS);
+                
             }
         }
     }
